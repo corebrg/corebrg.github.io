@@ -2,15 +2,106 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>ITAhM Console</title>
+		<title>코어브릿지</title>
 		
 		<style>
-h1 {
-    color: #0084ff; 
+.area {
+    width: 1024px;
+    margin: auto;
 }
+
+.flex {
+    display: flex;
+}
+
+header {
+	position: fixed; height: 100px; top: 0; right: 0; left: 0;
+}
+
+header img {
+    height: 80px;
+}
+
+.main {
+	position: fixed; top: 100px; right: 0; bottom: 100px; left: 0;
+}
+
+main {
+    flex: 1;
+}
+
+aside {
+    width: 200px;
+}
+
+footer {
+	position: fixed; height: 100px; right: 0; bottom: 0; left: 0;
+}
+
+footer p {
+	font-size: 0.8em;
+}
+
+article {
+    width: 100%;
+    height: 100%;
+}
+/*
+article:not(:target) {
+    display: none;
+}*/
+
         </style>
     </head>
     <body>
-        <h1>Welcome corebridge.com!</h1>
+        <header>
+            <div class="area">
+                <img src="img/logo.png">
+            </div>
+        </header>
+        <nav></nav>
+        <div class="area flex main">
+            <main>
+                <article id="map"></article>
+            </main>
+			<aside>
+                <ul>
+                    <li><a href="#map">위치</a></li>
+                </ul>
+            </aside>
+		</div>
+        <footer>
+            <div class="area">
+				<p>
+                    주식회사 코어브릿지 서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107-3
+				</p>
+			</div>
+        </footer>
+
+        <script>
+                function myMap() {
+                    const lat = 37.479787,
+                        lng = 126.877125,
+                        map = new google.maps.Map(document.getElementById("map"), {
+                            center:new google.maps.LatLng(lat, lng),
+                            zoom: 14,
+                        }),
+                        marker = new google.maps.Marker({
+                            label: {
+                                text: "서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107-3",
+                                color: "#333",
+                                fontWeight: "bold"
+                            },
+                            position: {
+                                lat:  lat,
+                                lng: lng
+                            },
+                            map: map
+                        });
+                    
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3lDcxrcNH8nH4thkJ7v2Grhf2309d5TA&callback=myMap"></script>
     </body>
 </html>
