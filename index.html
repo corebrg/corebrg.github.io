@@ -6,44 +6,40 @@
 		
 		<style>
 
+@import "/css/style.css";
+
 body {
-    font-size: 12pt;
-    font-family: '맑은 고딕' Tahoma;
-}
-.area {
-    width: 1024px;
-    margin: auto;
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    margin: 0; padding: 0;
+    display: flex; flex-direction: column;
 }
 
 header {
-	height: 80px;
-}
-
-header ul {
-    text-align: right;
-}
-
-header li {
-    display: inline-block;
-}
-
-header >.area {
-    height: 100%;
-    background: url(img/logo.png) no-repeat 10px center;
-    background-size: 250px;
-}
-header img {
-    height: 80px;
-    margin-top: 20px;
-}
-
-nav {
-    padding: 1em;
-}
-
-nav ul {
     display: flex;
-    justify-content: space-between;
+    height: 10px;
+}
+
+header >div {
+    height: 100%;
+    background-color: #000;
+    flex: 1;
+}
+
+header >div:not(:last-child) {
+    flex: none;
+    width: 100px;
+}
+
+header >div:nth-child(1) {
+    background-color: #0084ff;
+}
+
+header >div:nth-child(2) {
+    background-color: #808080;
+}
+
+header >div:nth-child(3) {
+    background-color: #f29511;
 }
 
 ul {
@@ -51,111 +47,94 @@ ul {
     padding: 0;
 }
 
-aside {
-    width: 200px;
+nav {
+	flex: none; height: 80px;
+    background: url(img/logo.png) no-repeat 10px center;
+    background-size: 250px;
+}
+
+nav ul {
+    text-align: right;
+    padding: 0; margin-left: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    display: inline-block;
+    margin: 1em;
+}
+
+nav a {
+    display: block;
+    font-weight: bolder;
+    padding: 1em;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    text-shadow: 1px 1px 1px #ddd;
+}
+
+nav a:visited,
+nav a:active,
+nav a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #0084ff;
+}
+
+nav a:active {
+    border-bottom: 2px solid #0084ff;
+}
+
+main {
+    border-top: 1px solid #aaa;
+    flex: 1;
+}
+
+iframe {
+    width: 100%; height: 100%;
+    border: none;
+}
+
+footer {
+    flex: none;
+    height: 80px;
 }
 
 footer p {
-	font-size: 0.8em;
+    font-size: 0.8em;
+    color: #555;
 }
 
-article img {
-    vertical-align: top;
-    margin: 0 1em;
-}
-
-#map {
-    height: 500px;
-}
-
-.title {
-    background: url(/img/title.gif) center no-repeat;
-    background-size: 2048px;
-}
-
-.title >i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 100px 0;
-}
 
         </style>
     </head>
     <body>
         <header>
-            <ul class="area">
-                <li><a href="/">Home</a></li>
-                <li>Contact</li>
-            </ul>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </header>
-        <div class="title">
-            <i>
-                <h1>코어브릿지는 고객과 함께 상생하는 기업을 지향하며 힘차게 달려가고 있습니다.</h1>
-            </i>
-        </div>
-        <div class="area body">
-            <!--nav>
-                <ul class="area">
-                    <li>기업소개</li>
-                    <li>서비스</li>
-                    <li>솔루션</li>
-                    <li>오시는길</li>
-                </ul>
-            </nav-->
-            <article>
-                <h3>
-                    사업영역
-                </h3>
-                <p>
-                    <img src="/img/security.png" width="80">
-                    방화벽, VPN, IPS, antiDDoS 장비와 같은 보안 장비를 납품하고 유지보수 합니다.
-                </p>
-                <p>
-                    독자 기술로 자체 제작한 네트워크 관제 (CEMS) 솔루션을 서비스 합니다.
-                    <img src="/img/dashboard.png" width="188">
-                </p>
-                <p>
-                    <img src="/img/maintenance.png" width="80">
-                    네트워크 및 보안장비 유지보수와 운영용역 서비스를 제공합니다.
-                </p>
-            </article>
-            <article id="map"></article>
-		</div>
-        <footer>
-            <div class="area">
-				<p>
-                    주식회사 코어브릿지 서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107-3
-				</p>
-			</div>
+        <nav class="content">
+            <ul>
+                <li><a href="/">회사소개</a></li>
+                <li><a href="/">사업분야</a></li>
+                <li><a href="/">주요제품</a></li>
+                <li><a href="/map.html" target="main">찾아오시는길</a></li>
+            </ul>
+        </nav>
+        <main>
+            <iframe src="/home.html" name="main"></iframe>
+        </main>
+        <footer class="content">
+            <p>
+                주식회사 코어브릿지 서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107
+            </p>
         </footer>
-
-        <script>
-                function myMap() {
-                    const lat = 37.479787,
-                        lng = 126.877125,
-                        map = new google.maps.Map(document.getElementById("map"), {
-                            center:new google.maps.LatLng(lat, lng),
-                            zoom: 14,
-                        }),
-                        marker = new google.maps.Marker({
-                            label: {
-                                text: "서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107-3",
-                                color: "#333",
-                                fontWeight: "bold"
-                            },
-                            position: {
-                                lat:  lat,
-                                lng: lng
-                            },
-                            map: map
-                        });
-                    
-                    marker.setAnimation(google.maps.Animation.BOUNCE);
-                }
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3lDcxrcNH8nH4thkJ7v2Grhf2309d5TA&callback=myMap"></script>
     </body>
 </html>

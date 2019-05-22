@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>코어브릿지</title>
+		
+		<style>
+@import "/css/style.css";
+
+body {
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    margin: 0; padding: 0;
+    display: flex; flex-direction: column;
+}
+
+header {
+    flex: none;
+}
+
+table {
+    flex: none;
+    border-collapse:collapse;
+    border-spacing: 1em;
+    margin: 1em;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 1em;
+}
+
+#map {
+    flex: 1;
+    height: 100%;
+}
+        </style>
+    </head>
+    <body class="content">
+        <header class="title">
+            <h1>
+                찾아오시는길
+            </h1>
+        </header>
+        <table>
+            <tr>
+                <td>회사명</td>
+                <td>주식회사 코어브릿지</td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td>서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107</td>
+            </tr>
+            <tr>
+                <td>대표번호</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>팩스번호</td>
+                <td>02-6919-0377</td>
+            </tr>
+        </table>
+        </article>
+        <div id="map"></div>
+        <script>
+function myMap() {
+    const lat = 37.479787,
+        lng = 126.877125,
+        map = new google.maps.Map(document.getElementById("map"), {
+            center:new google.maps.LatLng(lat, lng),
+            zoom: 14,
+        }),
+        marker = new google.maps.Marker({
+            label: {
+                text: "서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107-3",
+                color: "#333",
+                fontWeight: "bold"
+            },
+            position: {
+                lat:  lat,
+                lng: lng
+            },
+            map: map
+        });
+    
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+}
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3lDcxrcNH8nH4thkJ7v2Grhf2309d5TA&callback=myMap"></script>
+    </body>
+</html>

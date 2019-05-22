@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+body {
+    font-size: 12pt;
+    font-family: '맑은 고딕' Tahoma;
+}
+
+.content {
+    width: 1024px;
+    margin: auto;
+}
+
+header.title {
+    border-bottom: 2px solid #777;
+    padding: 1em;
+}
