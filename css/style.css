@@ -12,5 +12,11 @@ body {
 
 header.title {
     border-bottom: 2px solid #777;
-    padding: 1em;
+}
+
+a:visited.normal,
+a:active.normal,
+a:link.normal {
+    color: initial;
+    text-decoration: none;
 }

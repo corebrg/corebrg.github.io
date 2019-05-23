@@ -48,22 +48,19 @@ ul {
 }
 
 nav {
-	flex: none; height: 80px;
-    background: url(img/logo.png) no-repeat 10px center;
-    background-size: 250px;
+    position: relative;
 }
 
 nav ul {
     text-align: right;
     padding: 0; margin-left: 300px;
-    height: 100%;
     display: flex;
     align-items: center;
 }
 
 nav li {
     display: inline-block;
-    margin: 1em;
+    margin: 0 1em;
 }
 
 nav a {
@@ -82,7 +79,7 @@ nav a:link {
     text-decoration: none;
 }
 
-nav a:hover {
+nav a:not(.logo):hover {
     border-bottom: 2px solid #0084ff;
 }
 
@@ -110,6 +107,9 @@ footer p {
     color: #555;
 }
 
+.logo {
+    position: absolute;
+}
 
         </style>
     </head>
@@ -121,10 +121,11 @@ footer p {
             <div></div>
         </header>
         <nav class="content">
+            <a class="logo" href="/"><img src="/img/logo.png" width="250"></a>
             <ul>
-                <li><a href="/">회사소개</a></li>
-                <li><a href="/">사업분야</a></li>
-                <li><a href="/">주요제품</a></li>
+                <li><a href="/company.html" target="main">회사소개</a></li>
+                <li><a href="/business.html" target="main">사업분야</a></li>
+                <li><a href="/product.html" target="main">주요제품</a></li>
                 <li><a href="/map.html" target="main">찾아오시는길</a></li>
             </ul>
         </nav>

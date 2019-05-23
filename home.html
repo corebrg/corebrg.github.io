@@ -54,7 +54,7 @@ article >div {
     background-color: #eee;
 }
 
-.style1 >:not(h2) {
+.style1 :not(h2) {
     color: #777;
 }
 
@@ -63,6 +63,10 @@ article >div {
     justify-content: space-around;
     align-items: center;
     background-color: rgba(128, 128, 128, 0.7);
+}
+
+.style2 h2,
+.style2 p {
     color: #fff;
 }
 
@@ -96,6 +100,11 @@ header::before {
     background-image: url(/img/repair.png);
 }
 
+.block {
+    display: block;
+    height: 100%;
+}
+
         </style>
     </head>
     <body>
@@ -115,32 +124,40 @@ header::before {
                     <h1></h1>
                 </div>
                 <div class="about style2">
-                    <h2>About</h2>
-                    <p>회사소개</p>
+                    <a href="company.html" class="normal block">
+                        <h2>About</h2>
+                        <p>회사소개</p>
+                    </a>
                 </div>
                 <div class="icon nms"></div>
                 <div class="location style1">
-                    <h2>Location</h2>
-                    <span>
-                        찾아오시는길
-                    </span>
-                    <p>
-                        서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107
-                    </p>
+                    <a href="map.html" class="normal block">
+                        <h2>Location</h2>
+                        <span>
+                            찾아오시는길
+                        </span>
+                        <p>
+                            서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107
+                        </p>
+                    </a>
                 </div>
             </article>
             <article>
                 <div class="style2">
-                    <h2>Product</h2>
-                    <p>주요제품</p>
+                    <a href="product.html" class="normal block">
+                        <h2>Product</h2>
+                        <p>주요제품</p>
+                    </a>
                 </div>
                 <div class="icon security"></div>
                 <div class="business style1">
-                    <h2>Business</h2>
-                    <span>사업분야</span>
-                    <p>
+                    <a href="/business.html" class="normal block">
+                        <h2>Business</h2>
+                        <span>사업분야</span>
+                        <p>
 
-                    </p>
+                        </p>
+                    </a>
                 </div>
                 <div class="icon maintenance"></div>
             </article>
