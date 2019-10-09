@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 body {
-    font-size: 12pt;
-    font-family: '맑은 고딕' Tahoma;
+    font: 10pt '맑은 고딕', Tahoma, Arial;
 }
 
 .content {

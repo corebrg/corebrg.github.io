@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>코어브릿지</title>
+		
+		<style>
+@import "/css/style.css";
+
+body {
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    margin: 0; padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex: none;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 1em;
+}
+
+main img {
+    margin: 1em 0;
+}
+
+main h2 {
+    background-color: #073a61;
+    color: #fff;
+    padding: 1em;
+}
+
+div.demo {
+    text-align: center;
+}
+
+a {
+    display: inline-block;
+    padding: 1em;
+    background-color: #f0f0f0;
+    border: 1px solid #f0f0f0;
+}
+
+a:hover {
+    background-color: #ddd;
+}
+
+        </style>
+    </head>
+    <body>
+        <header class="title">
+            <h2>
+                CoreLog
+            </h2>
+        </header>
+        <main>
+            <p>CoreLog는 RFC 5424 Syslog 표준을 따르는 이기종간의 로그를 수집하고 가공하여 실시간 알림 및 열람 기능을 제공하는 솔루션 입니다.</p>
+            <img src="/img/syslog.png" width="760">
+            <p>또한 윈도우즈 이벤트를 모니터링 하여 관리자가 원하는 이벤트를 Syslog 포맷으로 생성하여 통합하는 에이전트를 제공합니다.</p>
+            <img src="/img/corelog.png" width="760">
+        </main>
+        <script>
+
+        </script>
+    </body>
+</html>

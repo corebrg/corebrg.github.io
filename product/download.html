@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>코어브릿지</title>
+		
+		<style>
+@import "/css/style.css";
+
+body {
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    margin: 0; padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex: none;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 1em;
+}
+
+main img {
+    margin: 1em 0;
+}
+
+table {
+    width: 400px;
+    margin: auto;
+    border: 1px solid #777;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0.5em;
+    border: 1px solid #aaa;
+    
+}
+        </style>
+    </head>
+    <body>
+        <header class="title">
+            <h2>
+                Download
+            </h2>
+        </header>
+        <main>
+            <p>
+                CeMS 는 ITAhM 엔진을 사용하여 보다 고성능의 엔터프라이즈 환경으로 안정화된 업그레이드 버전입니다.
+                기존 ITAhM 과 동일하게 무료 버전을 제공하며 더 편리한 UI를 경험할 수 있습니다.
+            </p>
+            <p>
+                실행에 문제가 있는 경우 아래 Java 내용을 참고하십시오.
+            </p>
+            <p>
+                설치 후 접속 주소는 <a href="/free.html">http://cems.corebrg.com/free.html</a> 입니다.
+            </p>
+            <h2>Exe</h2>
+            <p>Java가 포함되어 있지 않은 실행 파일 다운로드</p>
+            <a href="/download/CeMSFree.exe">CeMSFree.exe</a> (9,381KB)
+            <h2>Zip</h2>
+            <p>OpenJDK가 포함되어 있는 압축 파일 다운로드</p>
+            <a href="/download/CeMSFree.zip">CeMSFree.zip</a> (9,339KB)
+            <h2>Jar</h2>
+            <p>리눅스(유닉스) 환경과 그 밖의 Jar 파일 다운로드</p>
+            <a href="/download/CeMSFree.jar">CeMSFree.jar</a> (129.345KB)
+            <h2>Java</h2>
+            <p>
+                CeMS는 Java (JVM) 기반에서 동작하기 때문에 우선 Java가 설치되어 있어야 합니다.<br>
+                Oracle이 Java를 유료화 함에 따라 그의 대안인 무료 버전 OpenJDK를 사용할 수 있는지
+                고민 하는 관리자들이 많습니다. 결론적으로 말하자면 유료 Oracle Java 역시 OpenJDK를
+                바탕으로 고도화 된 산물이기 때문에 사용하는데 문제가 없다 입니다.
+            </p>
+            <p>
+                자바가 설치되어 있는지 확인하기 위해 명령 프롬프트에서 다음 명령어를 실행합니다.
+            </p>
+            <i>java - version</i>
+            <p>
+                openjdk version "12.0.1" 2019-04-16<br>
+                OpenJDK Runtime Environment (build 12.0.1+12)<br>
+                OpenJDK 64-Bit Server VM (build 12.0.1+12, mixed mode, sharing)
+            </p>
+            <p>
+                이와 같이 설치된 버전을확인할 수 있고, 설치되어 있지 않다면 명령이 수행되지 않을 것입니다.
+            </p>
+            <p>
+                Java 버전의 명명은 1.5 이후로 소숫점을 생략하고 6, 7, 8 과 같은 정수 형식으로 변경 되었고 최신 버전은 13 이며 14 버전이 준비중입니다<br>
+                CeMSFree 는 2019년10월9일 기준 12 버전으로 컴파일 되었기 때문에 12 이상의 Java 환경이 필요합니다.<br>
+                만일 실행 시 java.lang.UnsupportedClassVersionError 가 발생하고 class file version 에 대한 내용이 존재 한다면 아래 테이블을 참고하십시오.
+            </p>
+            <table>
+                <tr>
+                    <th>JVM</th>
+                    <th>Major version</th>
+                </tr>
+                <tr>
+                    <td>Java 1.4</td>
+                    <td>48</td>
+                </tr>
+                <tr>
+                    <td>Java 1.5</td>
+                    <td>49</td>
+                </tr>
+                <tr>
+                    <td>Java 6</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Java 7</td>
+                    <td>51</td>
+                </tr>
+                <tr>
+                    <td>Java 8</td>
+                    <td>52</td>
+                </tr>
+                <tr>
+                    <td>Java 9</td>
+                    <td>53</td>
+                </tr>
+                <tr>
+                    <td>Java 10</td>
+                    <td>54</td>
+                </tr>
+                <tr>
+                    <td>Java 11</td>
+                    <td>55</td>
+                </tr>
+                <tr>
+                    <td>Java 12</td>
+                    <td>56</td>
+                </tr>
+            </table>
+        </main>
+        <script>
+
+        </script>
+    </body>
+</html>

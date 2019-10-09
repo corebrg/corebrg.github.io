@@ -49,6 +49,7 @@ ul {
 
 nav {
     position: relative;
+    font-size: 1.2em;
 }
 
 nav ul {
@@ -79,12 +80,24 @@ nav a:link {
     text-decoration: none;
 }
 
-nav a:not(.logo):hover {
-    border-bottom: 2px solid #0084ff;
+li >a:hover,
+li >a:active {
+    border-bottom-color: #0084ff;
 }
 
-nav a:not(.logo):active {
-    border-bottom: 2px solid #0084ff;
+li:nth-of-type(2) >a:hover,
+li:nth-of-type(2) >a:active {
+    border-bottom-color: #808080;
+}
+
+li:nth-of-type(3) >a:hover,
+li:nth-of-type(3) >a:active {
+    border-bottom-color: #f29511;
+}
+
+li:nth-of-type(4) >a:hover,
+li:nth-of-type(4) >a:active {
+    border-bottom-color: #4d525a;
 }
 
 main {
