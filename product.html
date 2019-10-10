@@ -103,11 +103,13 @@ iframe {
             </ul>
         </aside>
         <main>
-            <iframe name="product" src="/product/cems.html"></iframe>
+            <iframe name="product"></iframe>
         </main>
         
         <script>
-
+(search => {
+    document.querySelector("iframe").src = search? ("/product/"+ search +".html"): "/product/cems.html";
+}) (window.location.search.substring(1));
         </script>
     </body>
 </html>

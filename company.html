@@ -97,11 +97,13 @@ iframe {
             </ul>
         </aside>
         <main>
-            <iframe name="company" src="/company/history.html"></iframe>
+            <iframe name="company"></iframe>
         </main>
         
         <script>
-
+(search => {
+    document.querySelector("iframe").src = search? ("/company/"+ search +".html"): "/company/history.html";
+}) (window.location.search.substring(1));
         </script>
     </body>
 </html>

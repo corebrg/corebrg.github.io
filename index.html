@@ -143,12 +143,44 @@ footer p {
             </ul>
         </nav>
         <main>
-            <iframe src="/home.html" name="main"></iframe>
+            <iframe name="main"></iframe>
         </main>
         <footer class="content">
             <p>
                 주식회사 코어브릿지 서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107
             </p>
         </footer>
+        <script>
+(search => {
+    const frame = document.querySelector("iframe");
+
+    if (search) {
+        const argMap = {};
+        let src = "/";
+
+        search.split("&").forEach(arg => {
+            const ar = arg.split("=");
+
+            if (ar.length == 2) {
+                argMap[decodeURIComponent(ar[0])] = decodeURIComponent(ar[1]);
+            }
+        });
+
+        if (argMap["page"]) {
+            src += (argMap["page"] +".html");
+
+            if (argMap["search"]) {
+                src += ("?"+ argMap["search"]);
+            }
+
+            frame.src = src;
+
+            return;
+        }
+    }
+
+    frame.src = "/home.html";
+}) (window.location.search.substring(1));
+        </script>
     </body>
 </html>
