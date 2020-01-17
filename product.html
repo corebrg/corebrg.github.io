@@ -89,12 +89,6 @@ iframe {
                     <a class="normal" href="/product/cems.html" target="product">CeMS</a>
                 </li>
                 <li>
-                    <a class="normal" href="/product/realdc.html" target="product">RealDC3D</a>
-                </li>
-                <li>
-                    <a class="normal" href="/product/corelog.html" target="product">CoreLog</a>
-                </li>
-                <li>
                     <a class="normal" href="/product/manual.html" target="product">Manual</a>
                 </li>
                 <li>
@@ -110,7 +104,7 @@ iframe {
         </main>
         
         <script>
-(search => {
+(function (search) {
     document.querySelector("iframe").src = search? ("/product/"+ search +".html"): "/product/cems.html";
 }) (window.location.search.substring(1));
         </script>

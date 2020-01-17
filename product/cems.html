@@ -20,33 +20,12 @@ header {
 
 main {
     flex: 1;
-    overflow-y: auto;
     padding-top: 1em;
 }
 
-main img {
-    margin: 1em 0;
-}
-
-main h2 {
-    background-color: #073a61;
-    color: #fff;
-    padding: 1em;
-}
-
-div.demo {
-    text-align: center;
-}
-
-a {
-    display: inline-block;
-    padding: 1em;
-    background-color: #f0f0f0;
-    border: 1px solid #f0f0f0;
-}
-
-a:hover {
-    background-color: #ddd;
+object,
+embed {
+    width: 100%; height: 100%;
 }
 
         </style>
@@ -58,7 +37,9 @@ a:hover {
             </h2>
         </header>
         <main>
-            <img src="/img/cems.png" width="760">
+            <object data="/download/product.pdf" type="application/pdf">
+                <embed src="/download/product.pdf" type="application/pdf"></embed>
+            </object>
         </main>
         <script>
 
