@@ -51,7 +51,7 @@ td {
             </tr>
             <tr>
                 <td>주소</td>
-                <td>서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107</td>
+                <td>경기도 안양시 동안구 시민대로 327번길 7 대명글로벌비즈스퀘어 501</td>
             </tr>
             <tr>
                 <td>대표번호</td>
@@ -66,15 +66,15 @@ td {
         <div id="map"></div>
         <script>
 function myMap() {
-    const lat = 37.479787,
-        lng = 126.877125,
+    const lat = 37.3965365395623,
+        lng = 126.966121951265,
         map = new google.maps.Map(document.getElementById("map"), {
             center:new google.maps.LatLng(lat, lng),
             zoom: 14,
         }),
         marker = new google.maps.Marker({
             label: {
-                text: "서울특별시 금천구 서부샛길 606, 대성디폴리스 B동 2107-3",
+                text: "경기도 안양시 동안구 시민대로 327번길 7 대명글로벌비즈스퀘어 501",
                 color: "#333",
                 fontWeight: "bold"
             },
