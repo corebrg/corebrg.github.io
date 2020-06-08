@@ -32,6 +32,11 @@ td {
     padding: 1em;
 }
 
+label {
+    display: block;
+    padding: 0.5em;
+}
+
 #map {
     flex: 1;
     height: 100%;
@@ -59,35 +64,36 @@ td {
             </tr>
             <tr>
                 <td>팩스번호</td>
-                <td>02-6919-0377</td>
+                <td>070-8233-7888</td>
             </tr>
         </table>
         </article>
         <div id="map"></div>
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d5f1506a806e98b9b51ecb765853bd7&libraries=services,clusterer,drawing"></script>
         <script>
-function myMap() {
-    const lat = 37.3965365395623,
-        lng = 126.966121951265,
-        map = new google.maps.Map(document.getElementById("map"), {
-            center:new google.maps.LatLng(lat, lng),
-            zoom: 14,
+try {
+    const
+        pos = new kakao.maps.LatLng(37.3965365395623, 126.966121951265),
+        map = new kakao.maps.Map(document.getElementById("map"), {
+            center: pos,
+            level: 3
         }),
-        marker = new google.maps.Marker({
-            label: {
-                text: "경기도 안양시 동안구 시민대로 327번길 7 대명글로벌비즈스퀘어 501",
-                color: "#333",
-                fontWeight: "bold"
-            },
-            position: {
-                lat:  lat,
-                lng: lng
-            },
-            map: map
+        marker = new kakao.maps.Marker({
+            position: pos,
+            clickable: false
+            //image: new kakao.maps.MarkerImage("http://cems.corebrg.com/img/svg/idc.svg", new kakao.maps.Size(50, 40)),
+        }),
+        title = new kakao.maps.InfoWindow({
+            position : pos,
+            content : "<label>주식회사 코어브릿지<br>경기도 안양시 동안구 시민대로 327번길 7 대명글로벌비즈스퀘어 501</label>;"
         });
-    
-    marker.setAnimation(google.maps.Animation.BOUNCE);
+
+        marker.setMap(map);
+
+        title.open(map, marker);
+} catch (e) {console.trace(e);
+    throw "kakao.maps.Map exception";
 }
         </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3lDcxrcNH8nH4thkJ7v2Grhf2309d5TA&callback=myMap"></script>
     </body>
 </html>
