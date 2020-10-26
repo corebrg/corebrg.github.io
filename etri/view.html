@@ -142,7 +142,7 @@ function initialize(o) {
     for (let key in $.subnets) {
         if ($.subnets[key].node.length > 0) {
             $.netMap[$.subnets[key].netid] = $.subnets[key];
-        } else console.log($.subnets[key]);
+        }
     }
 
     step1();

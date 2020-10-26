@@ -37,11 +37,17 @@ main.drop {
 	</head>
 	
 	<body>
-        <nav></nav>
+        <nav>
+            <ul id="tree"></ul>
+        </nav>
         <main>
             <iframe></iframe>
         </main>
 		<script>
+
+new BroadcastChannel("bc_onclick").onmessage = e => {
+    e.data;
+};
 
 {
     const view = document.body.querySelector("main");
@@ -71,6 +77,29 @@ main.drop {
     });
 }
 
+function createTree(o, container) {
+    let value, li;
+
+    for (let key in o) {
+        li = document.createElement("li");
+        li.textContent = key;
+
+        container.appendChild(li);
+
+        value = o[key];
+
+        switch (typeof value) {
+        case typeof {}:
+            createTree(value, li.appendChild(document.createElement("ul")));
+         
+            break;
+        case typeof "":
+            li.appendChild(document.createTextNode(` : ${value}`));
+            break;
+        }
+    }
+}
+
 function initialize(file) {
     const reader = new FileReader();
 
@@ -78,9 +107,13 @@ function initialize(file) {
         const view = document.body.querySelector("iframe");
 
         view.onload = e => {
+            const o = JSON.parse(reader.result);
+
             view.classList.add("initialized");
             
-            view.contentWindow.initialize(JSON.parse(reader.result));
+            createTree(o, document.getElementById("tree"));
+
+            view.contentWindow.initialize(o);
         };
 
         view.src = "/etri/view.html";

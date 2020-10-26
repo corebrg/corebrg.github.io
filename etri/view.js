@@ -9,6 +9,7 @@
         TEXT_TRIM = 20;
 
     const
+        bc = new BroadcastChannel("bc_onclick"),
         root = document.createElementNS(SVG_NS_URI, "svg"),
         container = document.createElementNS(SVG_NS_URI, "g"),
         transform = {
@@ -167,6 +168,8 @@
         svgIcon.setAttributeNS(XLINK_NS_URI, "xlink:href", args.icon);
         
         deviceArray.push(svgDevice);
+
+        svgDevice.onclick = e => bc.postMessage(args.name);
 
         layerMap.device.appendChild(svgDevice);
 
