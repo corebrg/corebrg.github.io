@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">		
+		<style>
+body {
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    padding: 1em; margin: 0;
+    display: flex;
+}
+
+nav {
+    flex: none; width: 500px;
+    overflow: scroll;
+}
+
+main {
+    flex: 1;
+}
+
+iframe {
+    width: 100%; height: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+iframe.initialized {
+    pointer-events: initial;
+}
+
+main.drop {
+    outline: 5px dotted #34495e;
+}
+
+		</style>
+		
+	</head>
+	
+	<body>
+        <nav></nav>
+        <main>
+            <iframe></iframe>
+        </main>
+		<script>
+
+{
+    const view = document.body.querySelector("main");
+
+    view.addEventListener("dragover", e => {
+        e.preventDefault();
+    });
+
+    view.addEventListener("dragenter", e => {
+        e.preventDefault();
+
+        view.classList.add("drop");
+    });
+
+    view.addEventListener("dragleave", e => {
+        e.preventDefault();
+
+        view.classList.remove("drop");
+    });
+
+    view.addEventListener("drop", e => {
+        e.preventDefault();
+        
+        view.classList.remove("drop");
+
+        initialize(e.dataTransfer.files[0]);
+    });
+}
+
+function initialize(file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        const view = document.body.querySelector("iframe");
+
+        view.onload = e => {
+            view.classList.add("initialized");
+            
+            view.contentWindow.initialize(JSON.parse(reader.result));
+        };
+
+        view.src = "/view.html";
+    };
+
+    reader.readAsText(file);
+}
+
+		</script>
+	
+	</body>
+	
+</html>
