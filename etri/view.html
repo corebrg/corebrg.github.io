@@ -116,7 +116,7 @@ Position.prototype = {
         </head>
         
         <body class="label name">
-            <script src="/view.js"></script>
+            <script src="/etri/view.js"></script>
             <script>
 const
     LINK_DIST = 40,
@@ -180,7 +180,7 @@ function step1 () {
 
                 addDevice({
                     position: pos,
-                    icon: "/img/host.png",
+                    icon: "/etri/img/host.png",
                     name: node.name,
                     size: HOST_SIZE
                 });
@@ -203,7 +203,7 @@ function step2 () {
             name: $.routers[key].name,
             position: pos,
             size: ROUTER_SIZE,
-            icon: "/img/router.png"
+            icon: "/etri/img/router.png"
         });
         
         $.posMap[$.routers[key].name] = pos;

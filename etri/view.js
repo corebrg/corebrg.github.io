@@ -164,7 +164,7 @@
         
         svgDevice.classList.add("node");
         
-        svgIcon.setAttributeNS(XLINK_NS_URI, "xlink:href", args.icon || "/img/router.svg");
+        svgIcon.setAttributeNS(XLINK_NS_URI, "xlink:href", args.icon);
         
         deviceArray.push(svgDevice);
 

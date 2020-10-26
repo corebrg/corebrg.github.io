@@ -1,4 +1,4 @@
-const o = {
+{
     "timestamp": "2020_06_12_16_51_22", 
     "traceroute": [
       {
