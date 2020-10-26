@@ -7,11 +7,26 @@ body {
     position: fixed; top: 0; right: 0; bottom: 0; left: 0;
     padding: 1em; margin: 0;
     display: flex;
+    font: 10pt "맑은 고딕", Tahoma, Arial;
 }
 
 nav {
     flex: none; width: 500px;
-    overflow: scroll;
+    overflow: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+li:target {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: #ffffff;
+    transition: all 0.5s linear;
+}
+
+li:not(:last-child)::after {
+    content: ","
 }
 
 main {
@@ -46,7 +61,7 @@ main.drop {
 		<script>
 
 new BroadcastChannel("bc_onclick").onmessage = e => {
-    e.data;
+    window.location.hash = `#${e.data}`;
 };
 
 {
@@ -78,25 +93,53 @@ new BroadcastChannel("bc_onclick").onmessage = e => {
 }
 
 function createTree(o, container) {
-    let value, li;
+    if (Array.isArray(o)) {
+        o.forEach(value => {
+            drawTree(container.appendChild(document.createElement("li")), value);
+        });
+    } else {
+        let li;
 
-    for (let key in o) {
-        li = document.createElement("li");
-        li.textContent = key;
+        for (let key in o) {
+            li = document.createElement("li");
 
-        container.appendChild(li);
+            container.appendChild(li);
 
-        value = o[key];
+            li.appendChild(document.createTextNode(`${key} : `));
 
-        switch (typeof value) {
-        case typeof {}:
-            createTree(value, li.appendChild(document.createElement("ul")));
-         
-            break;
-        case typeof "":
-            li.appendChild(document.createTextNode(` : ${value}`));
-            break;
+            drawTree(li, o[key]);
         }
+    }
+}
+
+function drawTree(li, value) {
+    if (value.name) {
+        li.id = value.name;
+    } else if (value.id) {
+        li.id = value.id;
+    }
+
+    switch (typeof value) {
+    case typeof "":
+        li.appendChild(document.createTextNode(value));
+
+        break;
+    case typeof {}:
+        if (Array.isArray(value)) {
+            li.appendChild(document.createTextNode("["));
+            
+            createTree(value, li.appendChild(document.createElement("ul")));
+            
+            li.appendChild(document.createTextNode("]"));
+        }else {
+            li.appendChild(document.createTextNode("{"));
+            
+            createTree(value, li.appendChild(document.createElement("ul")));
+            
+            li.appendChild(document.createTextNode("}"));
+        }
+
+        break;
     }
 }
 

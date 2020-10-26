@@ -274,6 +274,8 @@
             text.appendChild(tspan);
         }
 
+        svgPath.onclick = e => bc.postMessage(args.id);
+
         layerMap.path.appendChild(svgPath);
 
         return svgPath;
