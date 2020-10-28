@@ -64,6 +64,8 @@ main.drop {
         </main>
 		<script>
 
+const $ = {};
+
 new BroadcastChannel("bc_onclick").onmessage = e => {
     window.location.hash = `#${e.data}`;
 };
@@ -102,9 +104,26 @@ function createTree(o, container) {
             drawTree(container.appendChild(document.createElement("li")), value);
         });
     } else {
-        let li;
+        let li, set = true;
 
         for (let key in o) {
+            switch (key) {
+            case "routers":
+                $.key = "router";
+
+                break;
+            case "system_states":
+                $.key = "host";
+
+                break;
+            case "links":
+                $.key = "link";
+
+                break;
+            default:
+                set = false;
+            }
+
             li = document.createElement("li");
 
             container.appendChild(li);
@@ -112,15 +131,34 @@ function createTree(o, container) {
             li.appendChild(document.createTextNode(`${key} : `));
 
             drawTree(li, o[key]);
+
+            if (set) {
+                delete $.key;
+            }
         }
     }
 }
 
 function drawTree(li, value) {
-    if (value.name) {
-        li.id = value.name;
-    } else if (value.id) {
-        li.id = value.id;
+    switch ($.key) {
+    case "router":
+        if (value.type === "router" && value.name) {
+            li.id = value.name;
+        }
+
+        break;
+    case "host":
+        if (value.system_id && value.system_id.indexOf("H_") > -1) {
+            li.id = value.system_id;
+        }
+
+        break;
+    case "link":
+        if (value.id) {
+            li.id = value.id;
+        }
+
+        break;
     }
 
     switch (typeof value) {
