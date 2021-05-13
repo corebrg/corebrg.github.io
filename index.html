@@ -2,185 +2,261 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>코어브릿지</title>
 		
 		<style>
-
-@import "/css/style.css";
+@import url(/css/style.css);
+@import url(/css/font.css);
 
 body {
-    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-    margin: 0; padding: 0;
-    display: flex; flex-direction: column;
+    background: url(/img/bridge.jpg) no-repeat center;
+    background-size: cover;
 }
 
-header {
+section {
+    position: relative;
+    padding: 20px 0;
+}
+
+/**회사소개 section**/
+section.about {
+    color: #fefefe;
+    text-align: center;
+    background: url(/img/water_lily.png) no-repeat center;
+    background-size: cover;
+}
+
+section.about img {
+    width: 100%; margin: 0 auto;
+    max-width: 800px;
+    display: block;
+}
+
+/**사업분야 section**/
+section.business {
+    background: #fefefa url(/img/icon_business.png) no-repeat top right;
+    background-size: 400px;
+}
+
+section.business img{
+    width: 100%; margin: 10px auto;
+    max-width: 600px;
+    display: block;
+}
+
+/**axgate section**/
+section.axgate {
+    border-top: 1em solid #ff6e00;
+    border-bottom: 1em solid #ff6e00;
+    background-color: #ffffff;
+}
+
+section.axgate h1 {
+    font-size: 2em;
+    box-sizing: border-box;
+    color: #ff6e00;
+}
+
+section.axgate h1 img {
+    vertical-align: middle;
+    margin: 0 1em;
+}
+
+section.axgate div:last-of-type img{
+    width: 100%; margin: 0 auto;
+    max-width: 839px;
+    display: block;
+}
+
+/**소프트웨어 section**/
+section.software {
+    background-color: #1e3932;
+    color: #fefefe;
+}
+
+section.software p {
+    font-size: 2em;
+    padding: 0.5em;
+    position: relative;
+}
+
+section.software .button {
+    float: right;
+}
+
+section.software p:not(:last-of-type) {
+    border-bottom: 1px solid #4b615b;
+}
+
+section.software p span {
+    font-size: 0.8em;
+}
+
+/**cems section**/
+section.cems {
+    background: url(/img/bg_software.jpg) no-repeat center;
+    background-size: cover;
     display: flex;
-    height: 10px;
 }
 
-header >div {
-    height: 100%;
-    background-color: #000;
+section.cems::before {
+    position: absolute; inset: 0 0 0 0;
+    background: rgba(255, 255, 255, 0.8);
+    content: "";
+}
+
+section.cems >div {
     flex: 1;
-}
-
-header >div:not(:last-child) {
-    flex: none;
-    width: 100px;
-}
-
-header >div:nth-child(1) {
-    background-color: #0084ff;
-}
-
-header >div:nth-child(2) {
-    background-color: #808080;
-}
-
-header >div:nth-child(3) {
-    background-color: #f29511;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav {
     position: relative;
     font-size: 1.2em;
 }
 
-nav ul {
-    text-align: right;
-    padding: 0; margin-left: 300px;
-    display: flex;
-    align-items: center;
+section.cems span.check {
+    padding-left: 2em;
+    position: relative;
 }
 
-nav li {
-    display: inline-block;
-    margin: 0 1em;
+section.cems span.check::before {
+    font-family: "font awesome";
+    font-size: inherit;
+    content: "\f00c";
+    color: #1e3932;
+    position: absolute; left: 0;
 }
 
-nav a {
+section.cems ul {
+    list-style-type: square;
+    line-height: 2;
+}
+
+section.cems img {
+    max-width: 300px;
     display: block;
-    font-weight: bolder;
-    padding: 1em;
-    height: 100%;
-    border-bottom: 2px solid transparent;
-    text-shadow: 1px 1px 1px #ddd;
 }
 
-nav a:visited,
-nav a:active,
-nav a:link {
-    color: #000;
-    text-decoration: none;
+section.cems >div:first-of-type img {
+    width: 100%; margin: 0 auto;
 }
 
-li >a:hover,
-li >a:active {
-    border-bottom-color: #0084ff;
+section.cems >div:first-of-type img:nth-child(1) {
+    transform: rotate(10deg);
 }
 
-li:nth-of-type(2) >a:hover,
-li:nth-of-type(2) >a:active {
-    border-bottom-color: #808080;
+section.cems >div:first-of-type img:nth-child(2) {
+    transform: rotate(-20deg);
 }
 
-li:nth-of-type(3) >a:hover,
-li:nth-of-type(3) >a:active {
-    border-bottom-color: #f29511;
+section.cems >div:first-of-type img:nth-child(3) {
+    transform: rotate(0deg);
 }
 
-li:nth-of-type(4) >a:hover,
-li:nth-of-type(4) >a:active {
-    border-bottom-color: #4d525a;
+section.cems >div:first-of-type img:nth-child(4) {
+    transform: rotate(-10deg);
 }
 
-main {
-    border-top: 1px solid #aaa;
-    flex: 1;
+a:visited,
+a:active,
+a:link {
+    color: inherit;
+    text-decoration: initial;
 }
 
-iframe {
-    width: 100%; height: 100%;
-    border: none;
-}
+@media all and (max-width: 520px) {
+    section.cems {
+        display: block;
+    }
 
-footer {
-    flex: none;
-    height: 80px;
-}
+    section.cems >div {
+        margin-bottom: 1em;
+        overflow: hidden;
+    }
 
-footer p {
-    font-size: 0.8em;
-    color: #555;
-}
+    section.software .button {
+        float: none;
+        width: 100%; box-sizing: border-box;
+        text-align: center;
+        margin-top: 1em;
+    }
 
-.logo {
-    position: absolute;
+    section.about img,
+    section.cems img,
+    section.axgate img,
+    section.business img {
+        max-width: 100%;
+    }
 }
-
         </style>
     </head>
     <body>
-        <header>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </header>
-        <nav class="content">
-            <a class="logo" href="/"><img src="/img/logo_text.png" height="46"></a>
-            <ul>
-                <li><a href="/company.html" target="main">회사소개</a></li>
-                <li><a href="/business.html" target="main">사업분야</a></li>
-                <li><a href="/product.html" target="main">주요제품</a></li>
-                <li><a href="/map.html" target="main">찾아오시는길</a></li>
-            </ul>
-        </nav>
-        <main>
-            <iframe name="main"></iframe>
-        </main>
-        <footer class="content">
-            <p>
-                경기도 안양시 동안구 시민대로 327번길 7 대명글로벌비즈스퀘어 501
-            </p>
-        </footer>
+        <header></header>
+        <section class="about">
+            <h1>
+                코어브릿지는 고객과 함께 상생하는 기업을 지향하며,<br>
+                힘차게 달려가고 있습니다.
+            </h1>
+            <img src="/img/history.png">
+            <span class="button"><a href="/company.html">회사소개</a></span>
+        </section>
+        <section class="business">
+            <img src="/img/tsp.png">
+            <img src="/img/sales.png">
+            <img src="/img/consulting.png">
+            <img src="/img/maintenance.png">
+            <img src="/img/software.png">
+        </section>
+        <section class="axgate">
+            <div>
+                <h1 class="container">
+                    <img src="/img/logo_axgate.png">
+                    AXGATE 파트너
+                </h1>
+            </div>
+            <div class="container">
+                <img src="https://www.axgate.com/home/wp-content/uploads/2017/08/product_01_img_01-6.jpg">
+            </div>
+        </section>
+        <section class="software">
+            <div class="container">
+                <p>
+                    <b>CeMS</b> :: Corebridge Enterprise Management System<br>
+                </p>
+                <p>
+                    <span>코어브릿지가 개발하는 기업 네트워크 및 시스템 관제 솔루션 입니다.</span><br>
+                    <span>무료 버전을 경험해 보세요.</span>
+                    <span class="button"><a href="http://free.corebrg.com" target="_blank">Free</a></span>
+                </p>
+            </div>
+        </section>
+        <section class="cems">
+            <div>
+                <img src="/img/dash_basic.png">
+                <img src="/img/dash_rack.png">
+                <img src="/img/dash_map.png">
+                <img src="/img/dash_top.png">
+            </div>
+            <div>
+                <ul>
+                    <li>Java 응용프로그램으로 제공됩니다.</li>
+                    <li>UI는 HTML5 표준을 준수합니다.</li>
+                    <li>Java embeded DB를 사용하므로 설치가 용이하고<br>
+                        고성능 입니다.</li>
+                    <li>사용자 경험 (UX) 을 최대한 반영하였습니다.</li>
+                    <li>다양한 대시보드를 지원합니다.<br>
+                        <span class="check">토폴로지</span><br>
+                        <span class="check">3D 데이터센터</span><br>
+                        <span class="check">성능 Top10</span><br>
+                        <span class="check">카카오맵</span>
+                    </li>
+                    <li>조작이 편리하고 강력한 차트를 제공합니다.<br>
+                        <img src="/img/dash_chart.png">
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <footer></footer>
+        <script src="/js/import.js"></script>
         <script>
-(search => {
-    const frame = document.querySelector("iframe");
-
-    if (search) {
-        const argMap = {};
-        let src = "/";
-
-        search.split("&").forEach(arg => {
-            const ar = arg.split("=");
-
-            if (ar.length == 2) {
-                argMap[decodeURIComponent(ar[0])] = decodeURIComponent(ar[1]);
-            }
-        });
-
-        if (argMap["page"]) {
-            src += (argMap["page"] +".html");
-
-            if (argMap["search"]) {
-                src += ("?"+ argMap["search"]);
-            }
-
-            frame.src = src;
-
-            return;
-        }
-    }
-
-    frame.src = "/home.html";
-}) (window.location.search.substring(1));
         </script>
     </body>
 </html>

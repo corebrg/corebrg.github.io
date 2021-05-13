@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>코어브릿지</title>
+		
+		<style>
+@import "/css/style.css";
+@import "/css/font.css";
+
+main {
+    display: flex;
+}
+
+aside {
+    font-size: 1.2em;
+    flex: none;
+    width: 200px;
+    border: 1px solid #ddd;
+}
+
+section {
+    flex: 1;
+    padding: 1em;
+}
+
+aside .title {
+    height: 160px;
+    display: flex; flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(/img/pattern.jpg);
+    background-size: 200px 160px;
+    color: #fff;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+aside a {
+    display: block;
+    height: 100%; box-sizing: border-box;
+    padding: 1em 1.5em;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+
+aside a:hover,
+aside a:active {
+    background-color: #f5f5f5;
+}
+
+aside a:hover::after,
+aside a:active::after {
+    font-family: "font awesome";
+    content: "\f054";
+    position: absolute; top: 50%; right: 1.5em;
+    transform: translateY(-50%);
+}
+
+aside h1 {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content:not(:target) {
+    display: none;
+}
+
+.content img {
+    width: 100%;
+    max-width: 800px; margin: 0 auto;
+}
+
+@media all and (max-width: 520px) {
+    main {
+        flex-direction: column;
+    }
+
+    aside .title {
+        display: none;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    aside ul {
+        display: flex;
+    }
+
+    aside li {
+        flex: 1;
+    }
+
+    aside li:not(:last-child) {
+        border-bottom: none;
+    }
+
+    aside a:hover::after,
+    aside a:active::after {
+        content: "\f078";
+    }
+}
+        </style>
+    </head>
+    <body>
+        <header></header>
+        <main class="container">
+            <aside>
+                <div class="title">
+                    <h2>주요제품</h2>
+                    <span>Products</span>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#cems">CeMS</a>
+                    </li>
+                    <li>
+                        <a href="#manual">Manual</a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </aside>
+            <section>
+                <div class="content" id="cems">
+                    <h1>CeMS</h1>
+                    <div>
+                        <img src="/img/products/products.2.PNG">
+                        <img src="/img/products/products.3.PNG">
+                        <img src="/img/products/products.4.PNG">
+                        <img src="/img/products/products.5.PNG">
+                        <img src="/img/products/products.6.PNG">
+                        <img src="/img/products/products.7.PNG">
+                        <img src="/img/products/products.8.PNG">
+                        <img src="/img/products/products.9.PNG">
+                        <img src="/img/products/products.10.PNG">
+                        <img src="/img/products/products.11.PNG">
+                        <img src="/img/products/products.12.PNG">
+                        <img src="/img/products/products.13.PNG">
+                        <img src="/img/products/products.14.PNG">
+                        <img src="/img/products/products.15.PNG">
+                        <img src="/img/products/products.16.PNG">
+                        <img src="/img/products/products.17.PNG">
+                        <img src="/img/products/products.18.PNG">
+                        <img src="/img/products/products.19.PNG">
+                        <img src="/img/products/products.20.PNG">
+                        <img src="/img/products/products.21.PNG">
+                        <img src="/img/products/products.22.PNG">
+                    </div>
+                </div>
+                <div class="content" id="manual">
+                    <h1>매뉴얼</h1>
+                    <div>
+                        <img src="/img/manual/manual.1.PNG">
+                        <img src="/img/manual/manual.2.PNG">
+                        <img src="/img/manual/manual.3.PNG">
+                        <img src="/img/manual/manual.4.PNG">
+                        <img src="/img/manual/manual.5.PNG">
+                        <img src="/img/manual/manual.6.PNG">
+                        <img src="/img/manual/manual.7.PNG">
+                        <img src="/img/manual/manual.8.PNG">
+                        <img src="/img/manual/manual.9.PNG">
+                        <img src="/img/manual/manual.10.PNG">
+                        <img src="/img/manual/manual.11.PNG">
+                        <img src="/img/manual/manual.12.PNG">
+                        <img src="/img/manual/manual.13.PNG">
+                        <img src="/img/manual/manual.14.PNG">
+                        <img src="/img/manual/manual.15.PNG">
+                        <img src="/img/manual/manual.16.PNG">
+                        <img src="/img/manual/manual.17.PNG">
+                        <img src="/img/manual/manual.18.PNG">
+                        <img src="/img/manual/manual.19.PNG">
+                        <img src="/img/manual/manual.20.PNG">
+                        <img src="/img/manual/manual.21.PNG">
+                        <img src="/img/manual/manual.22.PNG">
+                        <img src="/img/manual/manual.23.PNG">
+                        <img src="/img/manual/manual.24.PNG">
+                        <img src="/img/manual/manual.25.PNG">
+                        <img src="/img/manual/manual.26.PNG">
+                        <img src="/img/manual/manual.27.PNG">
+                        <img src="/img/manual/manual.28.PNG">
+                        <img src="/img/manual/manual.29.PNG">
+                        <img src="/img/manual/manual.30.PNG">
+                        <img src="/img/manual/manual.31.PNG">
+                        <img src="/img/manual/manual.32.PNG">
+                        <img src="/img/manual/manual.33.PNG">
+                        <img src="/img/manual/manual.34.PNG">
+                        <img src="/img/manual/manual.35.PNG">
+                        <img src="/img/manual/manual.36.PNG">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer></footer>
+        <script src="/js/import.js"></script>
+    </body>
+</html>

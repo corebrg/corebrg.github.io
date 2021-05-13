@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>코어브릿지</title>
 		
 		<style>
 @import "/css/style.css";
+@import "/css/font.css";
 
-body {
-    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-    margin: 0; padding: 0;
+main {
     display: flex;
 }
 
@@ -20,10 +20,9 @@ aside {
     border: 1px solid #ddd;
 }
 
-main {
+section {
     flex: 1;
-    width: 100%;
-    height: 100%;
+    padding: 1em;
 }
 
 aside .title {
@@ -31,7 +30,7 @@ aside .title {
     display: flex; flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-image: url(/img/bg_title.jpg);
+    background-image: url(/img/pattern.jpg);
     background-size: 200px 160px;
     color: #fff;
 }
@@ -48,10 +47,11 @@ aside li:not(:last-child) {
 
 aside a {
     display: block;
-    height: 100%;
+    height: 100%; box-sizing: border-box;
     padding: 1em 1.5em;
     position: relative;
     cursor: pointer;
+    text-align: center;
 }
 
 aside a:hover,
@@ -61,49 +61,198 @@ aside a:active {
 
 aside a:hover::after,
 aside a:active::after {
-    content: "\ff1e";
+    font-family: "font awesome";
+    content: "\f054";
     position: absolute; top: 50%; right: 1.5em;
     transform: translateY(-50%);
 }
 
-header {
-    flex: none;
+aside h1 {
+    border-bottom: 1px solid #dddddd;
 }
 
-iframe {
-    border: none;
+.content:not(:target) {
+    display: none;
+}
+
+.content img {
     width: 100%;
-    height: 100%;
+    max-width: 800px; margin: 0 auto;
 }
 
+.content table {
+    width: 100%;
+}
+
+@media screen and (max-width: 520px) {
+    main {
+        flex-direction: column;
+    }
+
+    aside .title {
+        display: none;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    aside ul {
+        display: flex;
+    }
+
+    aside li {
+        flex: 1;
+    }
+
+    aside li:not(:last-child) {
+        border-bottom: none;
+    }
+
+    aside a:hover::after,
+    aside a:active::after {
+        content: "\f078";
+    }
+}
         </style>
     </head>
-    <body class="content">
-        <aside>
-            <div class="title">
-                <h2>회사소개</h2>
-                <span>About Company</span>
-            </div>
-            <ul>
-                <li>
-                    <a class="normal" href="/company/history.html" target="company">연혁</a>
-                </li>
-                <li>
-                        <a class="normal" href="/company/org.html" target="company">조직도</a>
+    <body>
+        <header></header>
+        <main class="container">
+            <aside>
+                <div class="title">
+                    <h2>회사소개</h2>
+                    <span>About Company</span>
+                </div>
+                <ul>
+                    <li>
+                        <a class="normal" href="#history">연혁</a>
                     </li>
-                <li>
-                    <a class="normal" href="/company/greeting.html" target="company">인사말</a>
-                </li>
-            </ul>
-        </aside>
-        <main>
-            <iframe name="company"></iframe>
+                    <li>
+                            <a class="normal" href="#organization">조직도</a>
+                        </li>
+                    <li>
+                        <a class="normal" href="#greeting">인사말</a>
+                    </li>
+                </ul>
+            </aside>
+            <section>
+                <div class="content" id="history">
+                    <h1>연혁</h1>
+                    <div>
+                        <img src="/img/history.png">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>2017</th>
+                                    <td>3월 법인 설립</td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="5">2018</th>
+                                    <td>다산네트웍스 공급 파트너쉽</td>
+                                </tr>
+                                <tr>
+                                    <td>AXGATE 공급 실버파트너쉽</td>
+                                </tr>
+                                <tr>
+                                    <td>CeMS (Corebridge Enterprise Management System)출시</td>
+                                </tr>
+                                <tr>
+                                    <td>중소벤처기업등록</td>
+                                </tr>
+                                <tr>
+                                    <td>기업 부설 연구소 인정</td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="3">2019</th>
+                                    <td>CISCO 공급 유통 파트너쉽</td>
+                                </tr>
+                                <tr>
+                                    <td>AXGATE 공급 PP파트너쉽</td>
+                                </tr>
+                                <tr>
+                                    <td>케이티서비스 네트워크 관리 솔루션 용역</td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="4">2020</th>
+                                    <td>신한그룹 계열사 VPN 구축 사업</td>
+                                </tr>
+                                <tr>
+                                    <td>삼성생명서비스 VPN 구축 사업</td>
+                                </tr>
+                                <tr>
+                                    <td>ETRI (한국전자통신연구원) 네트워크 관리 솔루션 납품</td>
+                                </tr>
+                                <tr>
+                                    <td>KISTI (한국과학기술정보연구원) 네트워크 관리 솔루션 납품</td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="5">2021</th>
+                                    <td>한화생명보험 VPN 구축 및 유지보수 사업</td>
+                                </tr>
+                                <tr>
+                                    <td>삼성생명보험 VPN 유지보수 사업</td>
+                                </tr>
+                                <tr>
+                                    <td>교보생명보험 VPN 구축 및 유지보수 사업</td>
+                                </tr>
+                                <tr>
+                                    <td>신한생명보험 VPN 유지보수 사업</td>
+                                </tr>
+                                <tr>
+                                    <td>서울지하철 시설관리 솔루션(FMS) 납품</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content" id="organization">
+                    <h1>조직도</h1>
+                    <div>
+                        <img src="/img/organization.png">
+                    </div>
+                </div>
+                <div class="content" id="greeting">
+                    <h1>인사말</h1>
+                    <div>
+                        <h3>고객과 함께 하는 코어브릿지</h2>
+
+                        <p>고객 여러분 안녕하십니까?</p>
+                        <p>
+                            ㈜코어브릿지의 "코어"는 “핵심고객”을 의미하며,
+                            "브릿지"는 IT서비스를 제공하기 위하여 고객과 “연결” 한다는 뜻이 담겨 있습니다.</p>
+                        <p>
+                            이러한 의미를 담아 폐사는 많은 고객 여러분들의 격려를 받아 새롭게 탄생된
+                            기업입니다.</p>
+                        <p>
+                            코어브릿지는 고객과 함께 할 수 있는 ICT 최적의 기업으로 발돋움하기 위해
+                            태어났으며, 이 모든 결과물들을 고객에 좀더 낳은 서비스로 보답하도록 노력할
+                            것입니다.</p>
+
+                        <p>
+                            최근 네트워크는 매우 급속도로 발전해 가고 있고, 이를 보호하기 위한 보안
+                            시스템의 요구들은 점차 늘어나는 추세입니다. 이에 코어브릿지는 안전한 통신을
+                            제공하는 보안전문업체로의 도약을 준비하고 있습니다. 네트워크의 강자를
+                            자처하기에 앞서 좀 더 편하고 좀 더 나은 네트워크 세상을 만들어 갈 것입니다. </p>
+                        <p>
+                            이제는 네트워크 구축은 기본이 되었습니다. 어떤 업체가 가성비를 가지고
+                            있는지? 어떤 업체가 고객과 지속적으로 함께 할 수 있는지가 더 중요합니다.
+                            이를 위해 코어브릿지는 클라우드, 가상화, 망분리 등 새로운 시장의 진입을
+                            앞당기기 위해 협력사와의 파트너쉽을 견고히 진행해 가고 있습니다.</p>
+
+                        <p>
+                            이로써 고객이 원하는 NI/SI/Security/Outsourcing/Infra등 통합적이며,
+                            최적화하고, 최상의 One-Stop Service를 제공하여 드릴 것을 약속합니다.</p>
+                        <p>
+                            또한 고객 맞춤형 IT서비스를 안정적으로 제공하며 고객과 함께 성장하는 든든한
+                            동반자 역할을 다하겠다는 다짐으로 최선을 다하겠습니다. </p>
+                        <p>
+                            감사합니다.</p>
+                    </div>
+                </div>
+            </section>
         </main>
-        
-        <script>
-(search => {
-    document.querySelector("iframe").src = search? ("/company/"+ search +".html"): "/company/history.html";
-}) (window.location.search.substring(1));
-        </script>
+        <footer></footer>
+        <script src="/js/import.js"></script>
     </body>
 </html>

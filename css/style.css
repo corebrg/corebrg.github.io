@@ -1,21 +1,121 @@
 @charset "utf-8";
 
+:root {
+    --header-height: 100px;
+    --header-m-height: 150px;
+    --footer-height: 200px;
+    --footer-m-height: 300px;
+    --def-width: 1200px;
+}
+
 body {
-    font: 10pt '맑은 고딕', Tahoma, Arial;
+    margin: 0; padding: 0;
+    font: 10pt "맑은 고딕";
+    overflow-x: hidden;
 }
 
-.content {
-    width: 1024px;
-    margin: auto;
+.container {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
 }
 
-header.title {
-    border-bottom: 2px solid #777;
+span.button {
+    display: inline-block;
+    padding: 1em;
+    border: 2px solid #fefefe;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
-a:visited.normal,
-a:active.normal,
-a:link.normal {
-    color: initial;
-    text-decoration: none;
+a:visited,
+a:active,
+a:link {
+    color: inherit;
+}
+
+/** header **/
+header {    
+    background-color: #f6f5ef;
+    position: sticky; top: 0;
+    z-index: 9;
+}
+
+header .container {
+    height: var(--header-height);
+}
+
+header img {
+    position: absolute; top: 10px; left: 10px;
+    width: 200px;
+}
+
+header ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    position: absolute; right: 0; bottom: 0;
+    padding: 10px;
+    display: flex;
+}
+
+header li {
+    margin: 0 1em;
+}
+
+/** footer **/
+footer {
+    color: #ffffff;
+    background-color: #2C2A29;
+    text-align: center;
+}
+
+footer .container {
+    height: var(--footer-height);
+    display: flex; flex-direction: column;
+    justify-content: space-around;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer br {
+    display: none;
+}
+
+@media screen and (max-width: 520px) {
+    header .container {
+        height: var(--header-m-height);
+    }
+
+    header img,
+    header ul {
+        width: 100%; inset: auto;
+        position: relative;
+        display: flex;
+    }
+
+    header li {
+        flex: 1;
+        text-align: center;
+    }
+
+    footer .container {
+        height: var(--footer-m-height);
+    }
+
+    span.button {
+        width: 100%;
+    }
+
+    footer br {
+        display: initial;
+    }
+}
+
+@media screen and (min-width: 1281px) {
+    .container {
+        width: var(--def-width);
+    }
 }
